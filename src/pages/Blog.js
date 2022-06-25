@@ -8,7 +8,7 @@ const Blog = () => {
   const [error, setError] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(content.length < 140) {
+    if (content.length < 140) {
       setError(true);
     } else {
       setError(false);
@@ -24,7 +24,7 @@ const Blog = () => {
       <form onSubmit={(e) => handleSubmit(e)}>
         <input type="text" placeholder="Nom" />
         <textarea
-        style={{border: error ? "2px solid red" : "1px solid #61dafb" }}
+          style={{ border: error ? "2px solid red" : "1px solid #61dafb" }}
           placeholder="Message"
           onChangeCapture={(e) => setContent(e.target.value)}
         ></textarea>

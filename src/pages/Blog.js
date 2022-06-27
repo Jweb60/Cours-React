@@ -14,7 +14,7 @@ const Blog = () => {
 
   const getData = () => {
     axios
-      .get("http://localhost:3004/articles")
+      .get("http://localhost:3003/articles")
       .then((res) => setBlogData(res.data));
   };
   useEffect(() => getData(), []);
@@ -25,7 +25,7 @@ const Blog = () => {
     if (content.length < 140) {
       setError(true);
     } else {
-      axios.post("http://localhost:3004/articles", {
+      axios.post("http://localhost:3003/articles", {
         author,
         content,
         date: Date.now(),
@@ -36,6 +36,8 @@ const Blog = () => {
       getData();
     }
   };
+
+
 
   return (
     <div className="blog-container">
@@ -53,7 +55,7 @@ const Blog = () => {
           value={author}
         />
         <textarea
-          style={{ border: error ? "2px solid red" : "1px solid #61dafb" }}
+          style={{ border: error ? "2px solid red" : "1px solid #61dafb"}} autoFocus
           placeholder="Message"
           onChange={(e) => setContent(e.target.value)}
           value={content}
